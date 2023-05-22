@@ -1,0 +1,44 @@
+openapi: '3.0.2'
+info:
+  title: NBA Squeeze API
+  version: 1.0
+
+servers:
+  - url: https://api.server.test/v1
+
+paths:
+  /api/games:
+    get:
+      description: Return a feed of current games
+      tags:
+        - games
+      responses:
+        '200':
+          description: Return an array of games
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Games'
+
+components:
+  schemas:
+    Games:
+      type: object
+      properties:
+        uuid:
+          type: string
+          example: 0056a369-4618-43a4-ad88-e7c371bf5582
+        display_name:
+          type: string
+          example: "Andrew Brown"
+        handle:
+          type: string
+          example: "andrewbrown"
+        message:
+          type: string
+          example: "Who likes pineapple on their pizza?"
+        created_at:
+          type: string
+          example: "2023-02-06T18:11:03+00:00"
