@@ -9,6 +9,5 @@ COPY . .
 
 ENV FLASK_ENV=development
 
-EXPOSE 8000
-# CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=4567"]
-CMD ["python", "app.py"]
+EXPOSE ${PORT}
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=4567"]
