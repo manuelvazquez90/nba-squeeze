@@ -8,6 +8,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 ENV FLASK_ENV=development
+ENV FLASK_DEBUG=True
 
 EXPOSE ${PORT}
 CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=4567"]
