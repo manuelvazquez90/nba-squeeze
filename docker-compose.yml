@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+
+  api:
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
+      OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
+      OTEL_SERVICE_NAME: "api"
+    build: ./api
+    ports:
+      - 4567:4567
+    volumes:
+      - ./api:/api
